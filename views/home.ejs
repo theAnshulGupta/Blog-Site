@@ -1,9 +1,8 @@
-<!-- prettier-ignore-->
 <%- include("partials/header.ejs") %>
 
-<!-- render will automatically call all html too -->
-<h1>Home</h1>
-<p><%= content %></p>
+<% blogPosts.forEach(function(i){ %>
+<h1><%=i.title%></h1>
+<p><%=i.body%></p>
+<%}) %> 
 
-<!-- prettier-ignore-->
-<%- include("partials/footer.ejs") %>
+<%- include("partials/footer.ejs")%>
