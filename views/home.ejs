@@ -1,7 +1,9 @@
 <%- include("partials/header.ejs") %>
+<h1>Home</h1>
+<p><%= home %> </p>
 
 <% blogPosts.forEach(function(i){ %>
 <h1><%=i.title%></h1>
-<p><%=i.body%></p>
+<p class="truncate"><%=i.body%> <a href="posts/<%= i.title %>">Read More</a></p>
 <%}) %> 
 <%- include("partials/footer.ejs") %>
