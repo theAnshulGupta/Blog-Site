@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-
+const _ = require("lodash");
 const homeContent = {
   title: "Home",
   body:
@@ -44,8 +44,22 @@ app.post("/create", function (req, res) {
     body: req.body.text,
   };
   blogPosts.push(post);
-  console.log(Arra);
   res.redirect("/");
+});
+
+app.get("/posts/:postName", function (req, res) {
+  const redirectPost = _.lowerCase(req.params.postName);
+
+  blogPosts.forEach(function (post) {
+    const titleName = _.lowerCase(post.title);
+
+    if (titleName === redirectPost) {
+      res.render("post", {
+        title: post.title,
+        body: post.body,
+      });
+    }
+  });
 });
 
 app.listen(3000, function () {
