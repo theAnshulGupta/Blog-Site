@@ -4,6 +4,7 @@
 
 <% blogPosts.forEach(function(i){ %>
 <h1><%=i.title%></h1>
-<p class="truncate"><%=i.body%> <a href="posts/<%= i.title %>">Read More</a></p>
+<p class="block-with-text"><%=i.body%></p>
+<a href="posts/<%= i.title %>">Read More</a>
 <%}) %> 
 <%- include("partials/footer.ejs") %>
